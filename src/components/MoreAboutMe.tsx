@@ -28,47 +28,50 @@ export default function MoreAboutMe() {
     return (
         <section id="moreaboutme" className="pt-20 text-white">
             <h3 className="max-w-7xl mx-auto px-6 text-center text-5xl font-bold mb-8 text-yellow-400 drop-shadow-[0_0_15px_rgba(255,215,0,1)]">
-            More About Me</h3>
+                More About Me
+            </h3>
 
-                <div className=" bg-gray-800/50 p-8 rounded-xl shadow-lg ring-1 ring-gray-700">
-                    <p className="text-lg leading-relaxed text-gray-300">
-                        Hey! I'm glad you're here. I wanted to take a section of this site to explain a bit more about me, what I'm working on, and what I enjoy doing outside of coding.
-                        Hopefully, this gives you a better sense of who I am.
-                    </p>
-                    <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
-                        {[ 
-                            { title: "What I’m Working On", items: workingOn },
-                            { title: "Beyond Coding", items: beyondCoding },
-                            { title: "Certifications", items: certifications },
-                        ].map((section, index) => (
-                            <div key={index} className="bg-gray-900/50 p-5 rounded-lg shadow-md">
-                                <h4 className="text-xl font-semibold text-yellow-400 mb-2">{section.title}</h4>
-                                <ul className="list-none space-y-2 text-left">
-                                    {section.items.map((item, idx) => (
-                                        <li key={idx} className="flex items-start">
-                                            <span className="mr-2 text-xl">{item.icon}</span> 
-                                            <span>{item.text}</span>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        ))}
-                        
-                        <div className="bg-gray-900/50 p-5 rounded-lg shadow-md">
-                            <h4 className="text-xl font-semibold text-yellow-400 mb-2">Community Involvement</h4>
+
+            {/* Background for the grid on desktop only */}
+            <div className="md:bg-gray-800/50 md:p-8 md:rounded-xl md:shadow-lg md:ring-1 md:ring-gray-700">
+            <p className="bg-gray-800/50 p-4 rounded-xl text-lg leading-relaxed text-gray-300">
+                    Hey! I'm glad you're here. I wanted to take a section of this site to explain a bit more about me, what I'm working on, and what I enjoy doing outside of coding.
+                    Hopefully, this gives you a better sense of who I am.
+                </p>
+                <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-6">
+                    {[
+                        { title: "What I’m Working On", items: workingOn },
+                        { title: "Beyond Coding", items: beyondCoding },
+                        { title: "Certifications", items: certifications },
+                    ].map((section, index) => (
+                        <div key={index} className="bg-gray-900/50 p-5 rounded-lg shadow-md">
+                            <h4 className="text-xl font-semibold text-yellow-400 mb-2">{section.title}</h4>
                             <ul className="list-none space-y-2 text-left">
-                                {communityInvolvement.map((item, index) => (
-                                    <li key={index} className="flex items-start space-x-2">
-                                        <span className="text-xl">{item.icon}</span>
-                                        <div>
-                                            <span className="font-semibold">{item.title}</span> – {item.description}
-                                        </div>
+                                {section.items.map((item, idx) => (
+                                    <li key={idx} className="flex items-start">
+                                        <span className="mr-2 text-xl">{item.icon}</span>
+                                        <span>{item.text}</span>
                                     </li>
                                 ))}
                             </ul>
                         </div>
+                    ))}
+
+                    <div className="bg-gray-900/50 p-5 rounded-lg shadow-md">
+                        <h4 className="text-xl font-semibold text-yellow-400 mb-2">Community Involvement</h4>
+                        <ul className="list-none space-y-2 text-left">
+                            {communityInvolvement.map((item, index) => (
+                                <li key={index} className="flex items-start space-x-2">
+                                    <span className="text-xl">{item.icon}</span>
+                                    <div>
+                                        <span className="font-semibold">{item.title}</span> – {item.description}
+                                    </div>
+                                </li>
+                            ))}
+                        </ul>
                     </div>
                 </div>
+            </div>
         </section>
     );
 }
