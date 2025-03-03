@@ -83,8 +83,8 @@ const techStack = [
 
 export default function Experience() {
   return (
-    <section id="experience" className="max-w-7xl mx-auto py-20 text-center relative z-10">
-      <h3 className="text-5xl font-bold mb-8 text-yellow-400 drop-shadow-[0_0_30px_rgba(255,215,0,1)]">
+<section id="experience" className="max-w-7xl mx-auto py-20 text-center">
+<h3 className="text-5xl font-bold mb-8 text-yellow-400 drop-shadow-[0_0_15px_rgba(255,215,0,1)]">
         Tech Stack
       </h3>
 

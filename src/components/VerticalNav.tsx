@@ -9,8 +9,16 @@ const sections = [
   { id: "moreaboutme", label: "More About Me", icon: <Info size={20} /> },
 ];
 
-export default function VerticalNav() {
+export default function ResponsiveNav() {
   const [activeSection, setActiveSection] = useState("about");
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const checkScreenSize = () => setIsMobile(window.innerWidth < 768);
+    checkScreenSize();
+    window.addEventListener("resize", checkScreenSize);
+    return () => window.removeEventListener("resize", checkScreenSize);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -37,22 +45,28 @@ export default function VerticalNav() {
   };
 
   return (
-    <div className="fixed left-6 top-1/2 -translate-y-1/2 flex flex-col items-center space-y-6">
+    <div
+      className={`fixed flex items-center ${
+        isMobile
+          ? "fixed bottom-0 left-0 w-full bg-gray-900 bg-opacity-100 py-3 px-4 shadow-lg flex justify-around z-50"
+          : "left-6 top-1/2 -translate-y-1/2 flex-col space-y-6 z-50"
+      }`}
+    >
       {sections.map(({ id, label, icon }) => (
         <motion.button
           key={id}
-          className={`relative flex items-center space-x-3 px-4 py-2 rounded-full transition-all duration-300
+          className={`relative flex items-center px-4 py-2 rounded-full transition-all duration-300
             ${
               activeSection === id
                 ? "bg-yellow-400 text-gray-900 shadow-[0_0_20px_rgba(255,215,0,1)] scale-110"
                 : "bg-gray-800 text-gray-400 hover:bg-gray-700 hover:shadow-[0_0_10px_rgba(255,215,0,0.6)]"
-            }`}
+            } ${isMobile ? "p-2" : "space-x-3"}`}
           onClick={() => scrollToSection(id)}
           whileHover={{ scale: 1.1 }}
           whileTap={{ scale: 0.95 }}
         >
-          <span className="text-lg">{icon}</span>
-          <span className="hidden sm:inline">{label}</span>
+          <span>{icon}</span>
+          {!isMobile && <span>{label}</span>}
         </motion.button>
       ))}
     </div>

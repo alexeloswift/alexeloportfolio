@@ -26,11 +26,11 @@ export default function MoreAboutMe() {
     ];
 
     return (
-        <section id="moreaboutme" className="relative py-20 text-white overflow-hidden">
-            <div className="max-w-7xl mx-auto px-6 text-center">
-                <h3 className="text-5xl font-bold mb-6 text-yellow-400 drop-shadow-lg">More About Me</h3>
+        <section id="moreaboutme" className="pt-20 text-white">
+            <h3 className="max-w-7xl mx-auto px-6 text-center text-5xl font-bold mb-8 text-yellow-400 drop-shadow-[0_0_15px_rgba(255,215,0,1)]">
+            More About Me</h3>
 
-                <div className="relative bg-gray-800/50 p-8 rounded-xl shadow-lg ring-1 ring-gray-700">
+                <div className=" bg-gray-800/50 p-8 rounded-xl shadow-lg ring-1 ring-gray-700">
                     <p className="text-lg leading-relaxed text-gray-300">
                         Hey! I'm glad you're here. I wanted to take a section of this site to explain a bit more about me, what I'm working on, and what I enjoy doing outside of coding.
                         Hopefully, this gives you a better sense of who I am.
@@ -69,7 +69,6 @@ export default function MoreAboutMe() {
                         </div>
                     </div>
                 </div>
-            </div>
         </section>
     );
 }
